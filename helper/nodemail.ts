@@ -24,7 +24,7 @@ var transport = nodemailer.createTransport({
     from:"yashverma2121212121@gmail.com",
     to:email,
     subject:emailType==="verify"?"Verification Mail":"Password Change Mail",
-    html:`<p>Click: <a href=${emailType==='verify'?"http://localhost:3000/verifyemail?="+hashed:"http://localhost:3000/changepassword?="+hashed}>Here</a>
+    html:`<p>Click: <a href=${emailType==='verify'?process.env.DOMAIN+"/verifyemail?="+hashed:process.env.DOMAIN+"/changepassword?="+hashed}>Here</a>
     to ${emailType==='verify'?"Verify Your Mail":"Change Password by verification"}
     </p>`
   }
